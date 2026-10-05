@@ -1,6 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-const supabaseUrl = 'https://zqznaevluxughoiiqfyxs.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpxem5hZXZseHVnaG9paXFmeXhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyMzkyMjcsImV4cCI6MjEwNjgxNTIyN30.hOsOi3soIUqjcDwCf4eP0mHJu0is254h6GcLlEe-bHs'
+const supabaseUrl = 'https://zqznaevluxughoiiqfyxs.supabase.co'[cite: 1]
+// Copie a chave completa "Publishable key" que aparece na sua tela do Supabase:
+const supabaseKey = 'sb_publishable_x0tOQJpg_GF9ha2doN79QA_m8l2-5OD'
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
