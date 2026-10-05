@@ -14,49 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loadingOverlay) loadingOverlay.style.display = 'flex'
 
             try {
-                const inputImagem = document.getElementById('imagem')
-                let fotoUrl = ''
-
-                // Faz upload da foto para o Storage (Bucket 'fotos') se existir
-                if (inputImagem.files && inputImagem.files[0]) {
-                    const file = inputImagem.files[0]
-                    const fileExt = file.name.split('.').pop()
-                    const fileName = `${Date.now()}.${fileExt}`
-
-                    const { error: uploadError } = await supabase.storage
-                        .from('fotos')
-                        .upload(fileName, file)
-
-                    if (uploadError) throw uploadError
-
-                    const { data: publicData } = supabase.storage
-                        .from('fotos')
-                        .getPublicUrl(fileName)
-
-                    fotoUrl = publicData.publicUrl
-                }
-
-                // Monta o objeto para inserir na tabela 'desaparecidos'
+                // Pega os valores dos inputs do formulário diretamente
                 const novoDesaparecido = {
                     nome: document.getElementById('nome').value,
                     idade: parseInt(document.getElementById('idade').value),
                     local: document.getElementById('local').value,
                     data_desaparecimento: document.getElementById('data').value,
-                    foto_url: fotoUrl,
+                    foto_url: '', // Deixamos vazio temporariamente para evitar o erro de rede
                     ultimo_contato: document.getElementById('ultimo-contato').value,
                     parentesco: document.getElementById('parentesco').value,
                     caracteristicas_fisicas: document.getElementById('caracteristicas-fisicas').value,
                     roupas: document.getElementById('roupas').value,
-                    telefone_contato: document.getElementById('telefone-contato').value,
+                    telefone_contato: document.getElementById('telefone-contato'.value) || document.getElementById('telefone-contato').value,
                     descricao: document.getElementById('descricao').value
                 }
 
+                // Insere os dados na tabela 'desaparecidos' do Supabase
                 const { error: insertError } = await supabase
                     .from('desaparecidos')
                     .insert([novoDesaparecido])
 
                 if (insertError) throw insertError
 
+                // Sucesso
                 form.style.display = 'none'
                 if (successMessage) successMessage.style.display = 'block'
 
@@ -80,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (listaContainer) {
         carregarDesaparecidos()
 
-        // Configura barra de pesquisa
         window.searchDesaparecidos = function() {
             const termo = document.getElementById('searchInput').value
             carregarDesaparecidos(termo)
@@ -118,7 +97,7 @@ async function carregarDesaparecidos(filtro = '') {
 
     desaparecidos.forEach(item => {
         const card = document.createElement('div')
-        card.className = 'card-desaparecido' // Ajuste para a classe CSS do seu design se necessário
+        card.className = 'card-desaparecido'
         
         const fotoSrc = item.foto_url || 'WEBFINDER.jpg'
 
@@ -132,7 +111,6 @@ async function carregarDesaparecidos(filtro = '') {
             </div>
         `
 
-        // Evento para abrir o modal com os detalhes
         card.querySelector('.detalhes-btn').addEventListener('click', () => {
             abrirModalDetalhes(item)
         })
@@ -160,7 +138,6 @@ function abrirModalDetalhes(item) {
 
     modal.style.display = 'block'
 
-    // Botão de fechar modal
     const closeBtn = modal.querySelector('.close-btn')
     if (closeBtn) {
         closeBtn.onclick = () => { modal.style.display = 'none' }
