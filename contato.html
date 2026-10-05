@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Finder — Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="WEBFINDER.jpg">
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="brand">
+            <img src="WEBFINDER.jpg" alt="Logo Web Finder">Web Finder
+        </a>
+        
+        <div class="header-right">
+            <div class="zoom-box" title="Ajustar tamanho do site">
+                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                <label for="zoom-select" class="sr-only">Zoom:</label>
+                <select id="zoom-select" aria-label="Ajustar escala da tela">
+                    <option value="70%">70%</option>
+                    <option value="80%" selected>80%</option>
+                    <option value="90%">90%</option>
+                    <option value="100%">100%</option>
+                    <option value="110%">110%</option>
+                    <option value="120%">120%</option>
+                </select>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="cadastro.html"><i class="fas fa-user-plus"></i> Cadastrar Desaparecido</a></li>
+                <li><a href="lista.html"><i class="fas fa-list"></i> Lista de Desaparecidos</a></li>
+                <li><a href="contato.html" class="active" aria-current="page"><i class="fas fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-regular fa-circle-question"></i> Sobre nós</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2>Entre em Contato Conosco</h2>
+            <p>Estamos aqui para ajudar. Caso precise de suporte ou informações, utilize as formas de contato abaixo:</p>
+
+            <div class="informacoes-contato">
+                <div class="info-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <p>Instagram: <a href="https://www.instagram.com/web.finder___2025?utm_source=qr&igsh=cWY5eGM1aW0zeXFv" target="_blank" rel="noopener">@web.finder___2025</a></p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Horário de Atendimento: Segunda a Sexta, das 8h às 18h</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Rua Indaiá 119, Praia Grande, SP, 11701-440</p>
+                </div>
+            </div>
+
+            <form>
+                <h3>Envie uma Mensagem</h3>
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="Seu Nome Completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="mensagem" placeholder="Sua Mensagem..." required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Web Finder. Todos os direitos reservados.</p>
+    <p>Desenvolvido por Web Finder | <a href="https://www.instagram.com/web.finder___2025?utm_source=qr&igsh=cWY5eGM1aW0zeXFv" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+</footer>
+
+<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

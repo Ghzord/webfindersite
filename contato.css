@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Web Finder — contato.css
+   Página: Entre em Contato
+   Usa a mesma identidade visual de home.css
+   ========================================================================== */
+
+:root {
+    --ink: #ffffffd6;             /* Fundo da página (Branco) */
+    --panel: #F1F5F9;           /* Fundo dos cartões e seções */
+    --panel-light: #E2E8F0;     /* Fundo de hover/elementos */
+    --off-white: #21409f;       /* Cor principal de texto (Escuro) */
+    --muted: #475569;           /* Cor secundária de texto */
+    
+    /* Cores extraídas do Logo WEBFINDER */
+    --blue: #21409f;            /* Azul Marinho Escuro do Logo */
+    --blue-dark: #091026;       /* Tom mais escuro para hover/mobile */
+    --line: rgba(15, 27, 62, 0.15); /* Linha divisória suave */
+
+    --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--ink);
+    color: var(--off-white);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+
+header {
+    background: var(--blue);
+    border-bottom: 1px solid var(--blue-dark);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+nav ul li a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav ul li a.active {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Seção de Contato
+   ========================================================================== */
+
+.contato {
+    background-color: var(--ink);
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.contato h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+}
+
+.contato p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.informacoes-contato {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.info-item i {
+    font-size: 1.4rem;
+    color: var(--blue);
+    flex-shrink: 0;
+}
+
+.info-item a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.info-item a:hover {
+    color: var(--blue-dark);
+}
+
+/* Formulário de contato */
+.contato form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.contato form h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--off-white);
+    font-size: 1.2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    background: var(--panel);
+    color: var(--off-white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+    outline: none;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.btn-enviar {
+    padding: 15px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-enviar:hover {
+    background-color: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+.btn-enviar:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+footer {
+    text-align: center;
+    background-color: var(--ink);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    padding: 20px 15px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--blue-dark);
+}
+
+/* ==========================================================================
+   Responsivo + menu hamburguer
+   ========================================================================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active i {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .informacoes-contato {
+        grid-template-columns: 1fr;
+    }
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--blue-dark);
+        border-bottom: 1px solid var(--line);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        text-align: center;
+    }
+
+    nav.open {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0 20px;
+        gap: 4px;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

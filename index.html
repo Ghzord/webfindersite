@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Finder — Ajude a Encontrar Pessoas Desaparecidas</title>
+    <meta name="description" content="Web Finder é uma plataforma para cadastrar e divulgar casos de pessoas desaparecidas no Brasil.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="WEBFINDER.jpg">
+</head>
+<body>
+
+<!-- Duas pisadas humanas grandes definitivas carimbadas no site -->
+<div class="marcas-pisadas-humanas" aria-hidden="true">
+    <div class="pisada-humana pisada-1"></div>
+    <div class="pisada-humana pisada-2"></div>
+</div>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="brand">
+            <img src="WEBFINDER.jpg" alt="Logo Web Finder">Web Finder
+        </a>
+        
+        <div class="header-right">
+            <!-- Controle de Zoom do Site -->
+            <div class="zoom-box" title="Ajustar tamanho do site">
+                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                <label for="zoom-select" class="sr-only">Zoom:</label>
+                <select id="zoom-select" aria-label="Ajustar escala da tela">
+                    <option value="70%">70%</option>
+                    <option value="80%" selected>80%</option>
+                    <option value="90%">90%</option>
+                    <option value="100%">100%</option>
+                    <option value="110%">110%</option>
+                    <option value="120%">120%</option>
+                </select>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="cadastro.html"><i class="fas fa-user-plus"></i> Cadastrar Desaparecido</a></li>
+                <li><a href="lista.html"><i class="fas fa-list"></i> Lista de Desaparecidos</a></li>
+                <li><a href="contato.html"><i class="fas fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-regular fa-circle-question"></i> Sobre nós</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-vertical">
+    <!-- Seção 1: Hero Vertical Alongado -->
+    <section class="hero hero-vertical">
+        <div class="container">
+            <div class="hero-intro-box">
+                <img src="aufinder1.png" alt="Mascote detetive com lupa" class="mascote-destaque">
+                <div class="hero-text">
+                    <span class="badge-alerta"><i class="fas fa-bullhorn"></i> Mobilização Nacional</span>
+                    <h1>Situação Atual no Brasil</h1>
+                    <p>Um retrato rápido de por que essa causa exige atenção contínua e solidariedade coletiva.</p>
+                </div>
+            </div>
+
+            <!-- Carrossel -->
+            <div class="carousel" id="carousel" role="region" aria-roledescription="carrossel" aria-label="Situação atual no Brasil" tabindex="0">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <i class="fas fa-users-slash icone-slide"></i>
+                        <h3>Mais de 80 mil desaparecidos por ano</h3>
+                        <p>No Brasil, milhares de pessoas desaparecem anualmente. A maioria são crianças e adolescentes.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <i class="fas fa-magnifying-glass-location icone-slide"></i>
+                        <h3>Ajude na busca</h3>
+                        <p>Informações detalhadas aumentam as chances de reencontro. Cadastre fotos e dados importantes.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <i class="fas fa-stopwatch icone-slide"></i>
+                        <h3>Tempo é essencial</h3>
+                        <p>Agir rapidamente é crucial. Utilize nossa plataforma para divulgar casos e alcançar mais pessoas.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" type="button" aria-label="Slide anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next" type="button" aria-label="Próximo slide"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2: Como Ajudar na Busca (Player sem Erro 153) -->
+    <section class="secao-vertical secao-video">
+        <div class="container text-center">
+            <span class="subtitulo-secao"><i class="fas fa-video"></i> Material Educativo</span>
+            <h2>Como Ajudar na Busca</h2>
+            <p class="lead-vertical">Saiba quais informações são mais importantes para ajudar na busca de pessoas desaparecidas.</p>
+            
+            <div class="video-wrapper">
+                <iframe class="video"
+                    src="https://www.youtube.com/embed/4q6k_8BEk0E"
+                    title="Guia: como ajudar na busca de pessoas desaparecidas"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"></iframe>
+            </div>
+
+            <div class="video-fallback">
+                <a href="https://www.youtube.com/watch?v=4q6k_8BEk0E" target="_blank" rel="noopener noreferrer" class="btn-video-link">
+                    <i class="fa-brands fa-youtube"></i> Abrir vídeo diretamente no YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Guia de Ação Rápida em Flashcards Interativos 3D -->
+    <section class="secao-vertical secao-flashcards">
+        <div class="container">
+            <div class="text-center cabecalho-cards">
+                <span class="subtitulo-secao"><i class="fas fa-bolt"></i> Passo a Passo Imediato</span>
+                <h2>Guia de Ação Rápida</h2>
+                <p class="lead-vertical">Siga estes passos para aumentar as chances de reencontro. Passe o mouse ou toque nos cartões para virar.</p>
+            </div>
+
+            <div class="flashcards-grid">
+                <!-- Flashcard 1 -->
+                <div class="flashcard" tabindex="0" role="button" aria-label="Passo 1: Informe as autoridades. Clique para virar">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-numero">01</span>
+                            <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+                            <h3>Informe as Autoridades</h3>
+                            <p class="card-hint"><i class="fas fa-rotate"></i> Clique ou passe o mouse</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-numero-back">01</span>
+                            <h4>Ligue para o 190</h4>
+                            <p>Contate a polícia o mais rápido possível e registre o Boletim de Ocorrência.</p>
+                            <div class="card-destaque">
+                                <i class="fas fa-triangle-exclamation"></i>
+                                <span>Não espere 24h! O início das buscas deve ser imediato por lei.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcard 2 -->
+                <div class="flashcard" tabindex="0" role="button" aria-label="Passo 2: Divulgue nas redes sociais. Clique para virar">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-numero">02</span>
+                            <div class="card-icon"><i class="fas fa-share-nodes"></i></div>
+                            <h3>Divulgue nas Redes</h3>
+                            <p class="card-hint"><i class="fas fa-rotate"></i> Clique ou passe o mouse</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-numero-back">02</span>
+                            <h4>Mobilização Online</h4>
+                            <p>Compartilhe fotos recentes, traços físicos marcantes e vestimentas que a pessoa usava.</p>
+                            <div class="card-destaque">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Compartilhe em grupos locais e marque páginas de apoio.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcard 3 -->
+                <div class="flashcard" tabindex="0" role="button" aria-label="Passo 3: Distribua cartazes. Clique para virar">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-numero">03</span>
+                            <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                            <h3>Distribua Cartazes</h3>
+                            <p class="card-hint"><i class="fas fa-rotate"></i> Clique ou passe o mouse</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-numero-back">03</span>
+                            <h4>Pontos Estratégicos</h4>
+                            <p>Espalhe cartazes em terminais de ônibus, estações, hospitais, praças e comércios.</p>
+                            <div class="card-destaque">
+                                <i class="fas fa-map-pin"></i>
+                                <span>Concentre-se nos locais próximos de onde a pessoa foi vista por último.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcard 4 -->
+                <div class="flashcard" tabindex="0" role="button" aria-label="Passo 4: Cadastre no Web Finder. Clique para virar">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-numero">04</span>
+                            <div class="card-icon"><i class="fas fa-magnifying-glass-location"></i></div>
+                            <h3>Cadastre no Web Finder</h3>
+                            <p class="card-hint"><i class="fas fa-rotate"></i> Clique ou passe o mouse</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-numero-back">04</span>
+                            <h4>Multiplique o Alcance</h4>
+                            <p>Centralize as informações no banco público do Web Finder para ampliar a visibilidade gratuita.</p>
+                            <div class="card-destaque">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                <span>Gere também estimativas de envelhecimento com Inteligência Artificial.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4: Banner Alongado -->
+    <section class="secao-vertical secao-cta">
+        <div class="container text-center">
+            <div class="cta-card">
+                <i class="fas fa-hand-holding-heart icone-cta"></i>
+                <h2>Ajude a Trazer Alguém de Volta para Casa</h2>
+                <p>Nossa plataforma reúne dados de todo o país para agilizar buscas e reconectar famílias.</p>
+                <div class="cta-botoes">
+                    <a href="cadastro.html" class="btn btn-cta"><i class="fas fa-plus-circle"></i> Cadastrar Caso</a>
+                    <a href="lista.html" class="btn btn-cta-secundario"><i class="fas fa-search"></i> Ver Lista de Desaparecidos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Web Finder. Todos os direitos reservados.</p>
+    <p>Desenvolvido por Web Finder | <a href="https://www.instagram.com/web.finder___2025?utm_source=qr&igsh=cWY5eGM1aW0zeXFv" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></p>
+</footer>
+
+<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

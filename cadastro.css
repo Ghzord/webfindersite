@@ -1,0 +1,600 @@
+/* ==========================================================================
+   Web Finder — cadastro.css
+   Página: Cadastrar Desaparecido
+   Usa a mesma identidade visual de home.css
+   ========================================================================== */
+
+:root {
+    --ink: #ffffffd6;             /* Fundo da página (Branco) */
+    --panel: #F1F5F9;           /* Fundo dos cartões e seções */
+    --panel-light: #E2E8F0;     /* Fundo de hover/elementos */
+    --off-white: #21409f;       /* Cor principal de texto (Escuro) */
+    --muted: #475569;           /* Cor secundária de texto */
+    
+    /* Cores extraídas do Logo WEBFINDER */
+    --blue: #21409f;            /* Azul Marinho Escuro do Logo */
+    --blue-dark: #091026;       /* Tom mais escuro para hover/mobile */
+    --line: rgba(15, 27, 62, 0.15); /* Linha divisória suave */
+
+    --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--ink);
+    color: var(--off-white);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+main {
+    flex: 1;
+    background-color: var(--ink);
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+
+header {
+    background: var(--blue);
+    border-bottom: 1px solid var(--blue-dark);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+nav ul li a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav ul li a.active {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/* Botões gerais */
+.btn {
+    display: inline-block;
+    background-color: var(--blue);
+    color: #FFFFFF;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+    background-color: var(--blue-dark);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Seção de Cadastro
+   ========================================================================== */
+
+.cadastro {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--ink);
+}
+
+.cadastro h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+    max-width: 440px;
+    margin: auto;
+}
+
+.cadastro input,
+.cadastro textarea {
+    padding: 14px;
+    margin: 8px 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--off-white);
+    font-size: 1rem;
+}
+
+.cadastro input::placeholder,
+.cadastro textarea::placeholder {
+    color: var(--muted);
+}
+
+.cadastro input:focus,
+.cadastro textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+
+.cadastro textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.cadastro button {
+    background-color: var(--blue);
+    color: #FFFFFF;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 8px;
+    transition: background-color 0.2s;
+}
+
+.cadastro button:hover {
+    background-color: var(--blue-dark);
+}
+
+/* Upload de foto */
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 16px;
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--off-white);
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--panel-light);
+}
+
+#file-name {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+#preview {
+    display: none;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+/* ==========================================================================
+   Projeção de envelhecimento via IA
+   ========================================================================== */
+
+.ia-projecao {
+    background: var(--panel);
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.ia-projecao-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.ia-projecao-head i {
+    font-size: 1.3rem;
+    color: var(--blue);
+    margin-top: 3px;
+}
+
+.ia-projecao-head strong {
+    display: block;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1.05rem;
+    color: var(--off-white);
+    margin-bottom: 4px;
+}
+
+.ia-projecao-head p {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.ia-projecao-controls label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.ia-projecao-row {
+    display: flex;
+    gap: 10px;
+}
+
+.ia-projecao-row input[type="number"] {
+    width: 90px;
+    padding: 12px;
+    margin: 0;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--off-white);
+    font-size: 1rem;
+}
+
+#gerar-projecao-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 0 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#gerar-projecao-btn:hover {
+    background-color: var(--blue-dark);
+}
+
+.projecao-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.projecao-resultado {
+    margin-top: 20px;
+}
+
+.projecao-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.projecao-item {
+    text-align: center;
+}
+
+.projecao-item span {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.projecao-item img {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+
+.projecao-aviso {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+.projecao-aviso i {
+    color: var(--blue);
+}
+
+@media (max-width: 480px) {
+    .ia-projecao-row {
+        flex-direction: column;
+    }
+
+    .projecao-compare {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* select genérico */
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    background-color: var(--panel);
+    color: var(--off-white);
+}
+
+/* ==========================================================================
+   Mensagem de sucesso
+   ========================================================================== */
+
+#success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--off-white);
+    padding: 24px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 1.1rem;
+    text-align: center;
+    min-width: 220px;
+}
+
+#verListaBtn {
+    margin-top: 14px;
+    padding: 12px 24px;
+    background-color: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#verListaBtn:hover {
+    background-color: var(--blue-dark);
+}
+
+/* ==========================================================================
+   Modal genérico
+   ========================================================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(15, 27, 62, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    padding: 24px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    color: var(--off-white);
+}
+
+.modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal button:hover {
+    background-color: var(--blue-dark);
+}
+
+/* ==========================================================================
+   Overlay de carregamento
+   ========================================================================== */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 27, 62, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+.loading-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 30px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.loading-box i {
+    font-size: 40px;
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+
+.loading-box p {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--off-white);
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+footer {
+    text-align: center;
+    background-color: var(--ink);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    padding: 20px 15px;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--blue-dark);
+}
+
+/* Estado padrão do formulário */
+#desaparecido-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   Menu hamburguer responsivo
+   ========================================================================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active i {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--blue-dark);
+        border-bottom: 1px solid var(--line);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        text-align: center;
+    }
+
+    nav.open {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0 20px;
+        gap: 4px;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

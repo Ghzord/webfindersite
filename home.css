@@ -1,0 +1,442 @@
+/* ==========================================================================
+   Variáveis — Tema Claro com Detalhes no Azul do Logo (#0F1B3E)
+   ========================================================================== */
+
+:root {
+    --ink: #ffffffd6;             /* Fundo da página (Branco) */
+    --panel: #F1F5F9;           /* Fundo dos cartões e seções */
+    --panel-light: #E2E8F0;     /* Fundo de hover/elementos */
+    --off-white: #21409f;       /* Cor principal de texto (Escuro) */
+    --muted: #475569;           /* Cor secundária de texto */
+    
+    /* Cores extraídas diretamente da imagem do WEBFINDER */
+    --blue: #21409f;            /* Azul Marinho Escuro do Logo */
+    --blue-dark: #091026;       /* Tom mais escuro para hover/mobile */
+    --line: rgba(15, 27, 62, 0.15); /* Linha divisória suave */
+
+    --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+    .header-detective {
+  display: flex;
+  align-items: center; /* Alinha o texto verticalmente com a imagem */
+  gap: 15px;           /* Espaço entre a imagem e o texto */
+  .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.logo-png {
+  width: 40px;          /* Ajusta o tamanho da cabeça do mascote */
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;   /* Deixa a imagem redonda caso a imagem original seja quadrada */
+}
+}
+
+.detective-img {
+  width: 80px;        /* Ajuste a largura da imagem conforme necessário */
+  height: auto;
+}
+
+.detective-title {
+  font-size: 1.5rem;
+  color: var(--off-white, #1e293b); /* Adapta-se ao tema */
+  margin: 0;
+  .situacao-header {
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.situacao-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.detective-img {
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.situacao-texto h2 {
+  font-family: var(--font-display, sans-serif);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--blue, #0F1B3E);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.situacao-texto p {
+  font-size: 1.05rem;
+  color: var(--muted, #475569);
+  margin: 0;
+  max-width: 500px;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 600px) {
+  .situacao-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .situacao-texto p {
+    margin: auto;
+  }
+}
+}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--ink);
+    color: var(--off-white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Rótulo e detalhes em azul */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--off-white);
+}
+
+/* ==========================================================================
+   Header — Fundo no Azul do Logo com Textos Brancos
+   ========================================================================== */
+
+/* ==========================================================================
+   Estilo do Título/Logo no Cabeçalho
+   ========================================================================== */
+   header .brand,
+   header h1,
+   header h1 a {
+       font-family: var(--font-display);
+       font-size: 1.7rem;
+       font-weight: 700;
+       text-transform: uppercase;
+       letter-spacing: 0.02em;
+       color: #FFFFFF !important; /* Garante que o texto fica branco */
+       text-decoration: none;
+       margin: 0;
+   }
+   
+   header .brand:hover,
+   header h1 a:hover {
+       color: rgba(255, 255, 255, 0.85) !important;
+   }
+
+header {
+    background: var(--blue);
+    border-bottom: 1px solid var(--blue-dark);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+}
+
+.brand .brand-mark {
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+nav ul li a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav ul li a.active {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+}
+
+.section-head {
+    max-width: 640px;
+    margin-bottom: 46px;
+}
+
+.section-head h2 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--off-white);
+}
+
+.section-head p {
+    color: var(--muted);
+    margin-top: 12px;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Estilização do Carrossel Bootstrap 5.3 (Light + Azul Logo)
+   ========================================================================== */
+
+.info-desaparecidos {
+    background: var(--ink);
+}
+
+.custom-carousel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 50px 40px 60px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(15, 27, 62, 0.05);
+}
+
+.carousel-card {
+    text-align: center;
+    padding: 10px 40px;
+}
+
+.carousel-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+
+.carousel-card p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Setas de Navegação */
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    opacity: 1;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.custom-carousel .carousel-control-prev { left: 15px; }
+.custom-carousel .carousel-control-next { right: 15px; }
+
+.custom-carousel .carousel-control-prev:hover,
+.custom-carousel .carousel-control-next:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+/* Ícone das setas no tom do azul do logo (brancas ao passar o mouse) */
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+    filter: invert(10%) sepia(35%) saturate(3000%) hue-rotate(205deg) brightness(90%) contrast(100%);
+}
+
+.custom-carousel .carousel-control-prev:hover .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next:hover .carousel-control-next-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Indicadores do carrossel */
+.custom-carousel .carousel-indicators {
+    margin-bottom: -35px;
+}
+
+.custom-carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--panel-light);
+    border: 1px solid var(--line);
+    height: 6px;
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.custom-carousel .carousel-indicators .active {
+    background-color: var(--blue);
+    width: 30px;
+    opacity: 1;
+}
+
+/* Guia em Vídeo & Ação Rápida */
+.guia-desaparecidos, .acao-rapida {
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.guia-desaparecidos .video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.guia-desaparecidos iframe {
+    width: 100%;
+    max-width: 720px;
+    height: 405px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+}
+
+.acao-rapida ol {
+    list-style: none;
+    counter-reset: passo;
+    max-width: 760px;
+}
+
+.acao-rapida ol li {
+    counter-increment: passo;
+    position: relative;
+    padding: 18px 0 18px 56px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.02rem;
+    color: var(--off-white);
+}
+
+.acao-rapida ol li::before {
+    content: counter(passo, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* Rodapé */
+footer {
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--blue);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--blue-dark);
+        border-bottom: 1px solid var(--line);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    nav.open { max-height: 400px; }
+    nav ul { flex-direction: column; padding: 10px 20px 20px; }
+    .custom-carousel .carousel-control-prev,
+    .custom-carousel .carousel-control-next { display: none; }
+    .carousel-card { padding: 10px 0; }
+}
