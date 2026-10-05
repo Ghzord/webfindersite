@@ -57,6 +57,7 @@
         <form id="desaparecido-form">
             <input type="text" id="nome" placeholder="Nome Completo" required />
             <input type="number" id="idade" placeholder="Idade" required />
+            
             <label for="local">Estado do Desaparecimento:</label>
             <select id="local" name="local" required>
                 <option value="">Selecione o Estado</option>
@@ -95,44 +96,6 @@
             <label for="imagem">Foto da pessoa:</label>
             <input type="file" id="imagem" accept="image/*" />
             <img id="preview" src="" alt="Pré-visualização da foto" style="display:none;" />
-
-            <div class="ia-projecao">
-                <div class="ia-projecao-head">
-                    <i class="fas fa-wand-magic-sparkles"></i>
-                    <div>
-                        <strong>Projeção de envelhecimento (opcional)</strong>
-                        <p>Gere uma estimativa visual de como a pessoa pode estar hoje.</p>
-                    </div>
-                </div>
-
-                <div class="ia-projecao-controls">
-                    <label for="anos-projecao">Anos passados desde o desaparecimento</label>
-                    <div class="ia-projecao-row">
-                        <input type="number" id="anos-projecao" min="1" max="40" value="5" />
-                        <button type="button" id="gerar-projecao-btn">
-                            <i class="fas fa-wand-magic-sparkles"></i> Gerar projeção com IA
-                        </button>
-                    </div>
-                </div>
-
-                <div id="projecao-loading" class="projecao-loading" style="display:none;">
-                    <i class="fas fa-spinner fa-spin"></i> Gerando projeção, aguarde...
-                </div>
-
-                <div id="projecao-resultado" class="projecao-resultado" style="display:none;">
-                    <div class="projecao-compare">
-                        <div class="projecao-item">
-                            <span>Foto original</span>
-                            <img id="projecao-original" src="" alt="Foto original">
-                        </div>
-                        <div class="projecao-item">
-                            <span id="projecao-anos-label">Projeção</span>
-                            <img id="projecao-gerada" src="" alt="Projeção gerada por IA">
-                        </div>
-                    </div>
-                    <p class="projecao-aviso"><i class="fas fa-circle-info"></i> Imagem gerada por IA é uma estimativa visual aproximada.</p>
-                </div>
-            </div>
 
             <input type="text" id="ultimo-contato" placeholder="Último Contato / Local visto" />
             <input type="text" id="parentesco" placeholder="Seu Parentesco com a pessoa" />
@@ -182,49 +145,6 @@
             preview.style.display = 'none';
         }
     });
-
-    const ENDPOINT_PROJECAO_IA = 'https://dry-lake-b5b4.joaologaragusom.workers.dev';
-
-    async function gerarProjecaoIA() {
-        const anos = document.getElementById('anos-projecao').value;
-        const loading = document.getElementById('projecao-loading');
-        const resultado = document.getElementById('projecao-resultado');
-
-        if (!inputImagem.files || !inputImagem.files[0]) {
-            alert('Selecione uma foto antes de gerar a projeção.');
-            return;
-        }
-
-        loading.style.display = 'flex';
-        resultado.style.display = 'none';
-
-        try {
-            const formData = new FormData();
-            formData.append('foto', inputImagem.files[0]);
-            formData.append('anos', anos);
-            formData.append('idade', document.getElementById('idade').value);
-
-            const response = await fetch(ENDPOINT_PROJECAO_IA, {
-                method: 'POST',
-                body: formData
-            });
-
-            if (!response.ok) throw new Error('Falha ao gerar a projeção.');
-            const data = await response.json();
-
-            document.getElementById('projecao-original').src = URL.createObjectURL(inputImagem.files[0]);
-            document.getElementById('projecao-gerada').src = data.imagemUrl;
-            document.getElementById('projecao-anos-label').textContent = `Projeção (+${anos} anos)`;
-            resultado.style.display = 'block';
-        } catch (erro) {
-            console.error(erro);
-            alert('Não foi possível gerar a projeção agora. Tente novamente em instantes.');
-        } finally {
-            loading.style.display = 'none';
-        }
-    }
-
-    document.getElementById('gerar-projecao-btn').addEventListener('click', gerarProjecaoIA);
 </script>
 
 <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
