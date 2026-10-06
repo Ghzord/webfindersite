@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loadingOverlay) loadingOverlay.style.display = 'flex'
 
             try {
-                const fotoInput = document.getElementById('foto')
-                let fotoUrl = ''
+const fotoInput = document.getElementById('imagem')
+let fotoUrl = ''
+
 
                 // Faz o upload da foto para o Supabase Storage se o usuário selecionou uma imagem
                 if (fotoInput && fotoInput.files.length > 0) {
