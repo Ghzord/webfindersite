@@ -997,116 +997,257 @@ input:focus, textarea:focus, select:focus {
 .projecao-aviso { margin-top: 10px; }
 .projecao-aviso i { color: var(--blue); }
 
-/* Lista */
+/* ==========================================================================
+   Lista de Desaparecidos (Estilização Reformulada)
+   ========================================================================== */
+.desaparecidos {
+  text-align: center;
+  padding: 50px 20px;
+}
+
 .search-container {
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 28px;
 }
 
-#searchInput { width: 320px; max-width: 100%; }
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
-  max-width: 1120px;
-  margin: auto;
-}
-
-.desaparecidos .card {
-  background: var(--sky);
+#searchInput,
+#locationFilter {
+  padding: 12px 16px;
+  background: #FFFFFF;
   border: 1px solid var(--line);
-  border-radius: var(--r);
-  padding: 16px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.desaparecidos .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(33, 64, 159, .15);
-}
-
-.desaparecidos .card img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
   border-radius: 8px;
+  color: #333;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
 }
 
-.desaparecidos .card h3 {
-  font-size: 1.25rem;
-  color: var(--blue);
-  margin: 10px 0 4px;
+#searchInput {
+  width: 320px;
+  max-width: 100%;
 }
 
-.desaparecidos .card p {
-  font-size: .9rem;
+#searchInput::placeholder {
   color: var(--muted);
 }
 
+#searchInput:focus,
+#locationFilter:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(33, 64, 159, 0.15);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.card-desaparecido {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-desaparecido:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(33, 64, 159, 0.12);
+  border-color: rgba(33, 64, 159, 0.3);
+}
+
+.card-desaparecido img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.card-desaparecido > div {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-desaparecido h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  font-family: var(--display);
+  color: var(--blue);
+  letter-spacing: 0.01em;
+}
+
+.card-desaparecido p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.card-desaparecido .detalhes-btn {
+  margin-top: auto;
+  background-color: var(--blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.card-desaparecido .detalhes-btn:hover {
+  background-color: var(--navy);
+}
+
+/* ==========================================================================
+   Modal de Detalhes (Centralizado e Responsivo)
+   ========================================================================== */
 .modal {
-  display: none;
+  display: none; 
   position: fixed;
-  inset: 0;
   z-index: 1000;
-  background: rgba(15, 27, 62, .7);
-  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 27, 62, 0.75);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .modal-content {
-  background: #fff;
-  border-radius: var(--r);
-  padding: 28px;
-  width: 92%;
-  max-width: 700px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--line);
+  padding: 35px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 750px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
   position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
+  animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: auto;
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .modal-flex-container {
   display: flex;
-  gap: 24px;
-  align-items: center;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 #modalFoto {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 260px;
   border-radius: 10px;
   object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
-.modal-details { flex: 1; }
+.modal-details {
+  flex: 1;
+  text-align: left;
+}
+
 .modal-details h3 {
-  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--blue);
-  margin-bottom: 10px;
+  border-bottom: 2px solid var(--sky);
+  padding-bottom: 8px;
 }
 
 .modal-details p {
-  margin: 6px 0;
+  margin: 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--muted);
-  font-size: .95rem;
+}
+
+.modal-details p strong {
+  color: var(--text);
 }
 
 .close-btn {
   position: absolute;
-  right: 16px;
-  top: 12px;
-  font-size: 28px;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
   color: var(--muted);
   cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
   background: none;
-  border: 0;
+  border: none;
+  padding: 0;
+  line-height: 1;
 }
 
-.close-btn:hover { color: var(--blue); }
+.close-btn:hover {
+  color: var(--blue);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-flex-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-details {
+    text-align: center;
+  }
+
+  #modalFoto {
+    width: 160px;
+    height: 190px;
+  }
+
+  .modal-details h3 {
+    font-size: 1.6rem;
+  }
+}
 
 #success-message {
   display: none;
@@ -1236,8 +1377,6 @@ footer a {
   .carousel-slide { padding: 34px 28px 52px; }
   .carousel-slide h3 { font-size: 1.7rem; }
   .hero-text h1 { font-size: 2.3rem; }
-  .modal-flex-container { flex-direction: column; text-align: center; }
-  #modalFoto { width: 150px; height: 150px; }
 }
 
 @media (max-width: 480px) {
