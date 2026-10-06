@@ -165,7 +165,7 @@ function abrirModalDetalhes(item) {
     document.getElementById('modalDescricao').textContent = item.descricao || 'Não informado'
 
     // Exibe o modal centralizado na tela
-    modal.style.display = 'block'
+modal.style.display = 'flex';
 
     const closeBtn = modal.querySelector('.close-btn')
     if (closeBtn) {
