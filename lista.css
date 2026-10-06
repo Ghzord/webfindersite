@@ -1,18 +1,18 @@
 /* ==========================================================================
    Web Finder — lista.css
    Página: Lista de Desaparecidos
-   Usa a mesma identidade visual de home.css
+   Identidade visual padronizada
    ========================================================================== */
 
 :root {
-    --ink: #ffffffd6;             /* Fundo da página (Branco) */
+    --ink: #ffffffd6;             /* Fundo da página */
     --panel: #F1F5F9;           /* Fundo dos cartões e seções */
     --panel-light: #E2E8F0;     /* Fundo de hover/elementos */
-    --off-white: #21409f;       /* Cor principal de texto (Escuro) */
+    --off-white: #21409f;       /* Cor principal de texto */
     --muted: #475569;           /* Cor secundária de texto */
     
     /* Cores extraídas do Logo WEBFINDER */
-    --blue: #21409f;            /* Azul Marinho Escuro do Logo */
+    --blue: #21409f;            /* Azul Marinho Principal */
     --blue-dark: #091026;       /* Tom mais escuro para hover/mobile */
     --line: rgba(15, 27, 62, 0.15); /* Linha divisória suave */
 
@@ -61,12 +61,23 @@ header .container {
     justify-content: space-between;
 }
 
-header h1 {
+header h1, .brand {
     font-family: var(--font-display);
     font-size: 1.7rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .brand img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 nav ul {
@@ -119,6 +130,7 @@ nav ul li a.active {
     font-weight: 700;
     margin-bottom: 30px;
     font-size: 2.2rem;
+    color: var(--blue);
 }
 
 /* Campo de pesquisa */
@@ -133,15 +145,16 @@ nav ul li a.active {
 #searchInput,
 #locationFilter {
     padding: 12px 16px;
-    background: var(--panel);
+    background: #FFFFFF;
     border: 1px solid var(--line);
-    border-radius: 6px;
-    color: var(--off-white);
+    border-radius: 8px;
+    color: #333;
     font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
 }
 
 #searchInput {
-    width: 300px;
+    width: 320px;
 }
 
 #searchInput::placeholder {
@@ -152,6 +165,7 @@ nav ul li a.active {
 #locationFilter:focus {
     outline: none;
     border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(33, 64, 159, 0.15);
 }
 
 .search-container button {
@@ -159,167 +173,229 @@ nav ul li a.active {
     background-color: var(--blue);
     color: #FFFFFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.2s, transform 0.15s;
+    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(33, 64, 159, 0.2);
 }
 
 .search-container button:hover {
     background-color: var(--blue-dark);
     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(33, 64, 159, 0.3);
 }
 
-/* Cards */
+/* Cards Reformulados (Mais bonitos e intuitivos) */
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
-.card {
-    background: var(--panel);
+.card-desaparecido {
+    background: #FFFFFF;
     border: 1px solid var(--line);
-    padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.2s, background 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    background: var(--panel-light);
+.card-desaparecido:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(33, 64, 159, 0.12);
+    border-color: rgba(33, 64, 159, 0.3);
 }
 
-.card img {
-    width: 60%;
-    height: 150px;
+.card-desaparecido img {
+    width: 100%;
+    height: 220px;
     object-fit: cover;
-    border-radius: 8px;
+    border-bottom: 1px solid var(--line);
 }
 
-.card h3 {
-    margin: 14px 0 6px;
-    font-size: 1.15rem;
-    color: var(--off-white);
+.card-desaparecido > div {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-.card p {
+.card-desaparecido h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-family: var(--font-display);
+    color: var(--blue);
+    letter-spacing: 0.01em;
+}
+
+.card-desaparecido p {
     font-size: 0.92rem;
     color: var(--muted);
+    margin: 4px 0;
+}
+
+.card-desaparecido .detalhes-btn {
+    margin-top: auto;
+    background-color: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.card-desaparecido .detalhes-btn:hover {
+    background-color: var(--blue-dark);
 }
 
 /* ==========================================================================
-   Modal de detalhes
+   Modal de Detalhes (Centralizado e Responsivo)
    ========================================================================== */
 
 .modal {
-    display: none;
+    display: none; 
     position: fixed;
-    z-index: 1000;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 27, 62, 0.7);
-    overflow: auto;
+    background-color: rgba(9, 16, 38, 0.75);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+    /* Centralização perfeita via Flexbox */
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .modal-content {
-    background-color: var(--panel);
+    background-color: #FFFFFF;
     border: 1px solid var(--line);
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 700px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 35px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 750px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
     position: relative;
-    animation: fadeIn 0.3s ease-in-out;
+    animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: auto; /* Garante centralização extra em navegadores legados */
 }
 
-@keyframes fadeIn {
+@keyframes modalScaleIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: scale(0.95) translateY(-10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1) translateY(0);
     }
 }
 
 .modal-flex-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
 }
 
 #modalFoto {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 260px;
     border-radius: 10px;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--line);
+    flex-shrink: 0;
 }
 
 .modal-details {
     flex: 1;
+    text-align: left;
 }
 
 .modal-details h3 {
     margin: 0 0 15px 0;
     font-family: var(--font-display);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--off-white);
+    color: var(--blue);
+    border-bottom: 2px solid var(--panel);
+    padding-bottom: 8px;
 }
 
 .modal-details p {
-    margin: 10px 0;
-    font-size: 1rem;
+    margin: 8px 0;
+    font-size: 0.95rem;
     line-height: 1.5;
     color: var(--muted);
+}
+
+.modal-details p strong {
+    color: #2c3e50;
 }
 
 .close-btn {
     position: absolute;
     right: 20px;
     top: 20px;
-    font-size: 28px;
+    font-size: 30px;
     color: var(--muted);
     cursor: pointer;
-    transition: color 0.2s;
+    transition: color 0.2s, transform 0.2s;
     background: none;
     border: none;
     padding: 0;
+    line-height: 1;
 }
 
 .close-btn:hover {
     color: var(--blue);
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
     .modal-flex-container {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-details {
         text-align: center;
     }
 
     #modalFoto {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 190px;
     }
 
     .modal-details h3 {
-        font-size: 1.5rem;
-    }
-
-    .modal-details p {
-        font-size: 0.9rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -341,6 +417,7 @@ footer a {
     color: var(--blue);
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 600;
 }
 
 footer a:hover {
